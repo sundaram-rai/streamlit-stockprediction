@@ -40,12 +40,6 @@ st.write(data.describe())
 print(f'Dataframe contains stock prices between {data.Date.min()} {data.Date.max()}') 
 print(f'Total days = {(data.Date.max() - data.Date.min()).days} days')
 
-# st.write(data[['Open','High','Low','Close','Adj Close']].plot(kind='box'))
-
-# st.write('Data between 2015-01-01 and 2021-01-01')
-# st.write(data.Close.plot(figsize=(12, 6), title='Closing Price'))
-# st.pyplot()
-
 
 def plot_raw_data():
     fig = go.Figure()
@@ -92,8 +86,7 @@ st.write(fig2)
 
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
-# After forecasting and obtaining the 'forecast' DataFrame
-true_values = data[['Date', 'Close']][-period:]  # Actual stock prices for the prediction period
+true_values = data[['Date', 'Close']][-period:]
 forecast = forecast[-period:]
 
 mae = mean_absolute_error(true_values['Close'], forecast['yhat'][-period:])
