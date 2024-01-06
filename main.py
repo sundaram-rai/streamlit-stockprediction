@@ -35,9 +35,7 @@ data_load_state.text("Loading data... done!")
 
 for stock, data in data_dict.items():
     data['Date'] = pd.to_datetime(data['Date'], dayfirst=True)
-    # st.subheader(f'Raw data for {stock}')
-    # st.write(data.info())
-    # st.write(data.describe())
+    
 
 def plot_raw_data():
     for stock, data in data_dict.items():
